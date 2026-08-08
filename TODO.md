@@ -12,8 +12,9 @@ Deploy the Airstar Fashion Home app to GitHub and Vercel, and make sure the site
 - Vercel CLI 58.5.1 installed.
 
 ## Steps
-- [ ] 1. Commit the updated `assets/app.js` (and any build artifacts) with a clear message.
-- [ ] 2. Push `master` to the GitHub remote (`origin`).
+- [x] 1. Commit the updated `assets/app.js` (and any build artifacts) with a clear message.
+- [x] 2. Push `master` to the GitHub remote (`origin`).
+  - **Note:** A real GCP API key was found in `.env.example` and blocked the push. It was scrubbed from all git history with `git-filter-repo` and replaced with a placeholder. The remote repo was empty, so this was safe. **The affected GCP API key should be revoked/rotated.**
 - [ ] 3. Deploy to Vercel production with `vercel --prod`.
 - [ ] 4. Verify the Vercel production URL: root page, /api/health, /api/collections, static assets all return 200.
 - [ ] 5. Verify the GitHub Pages / repository site renders correctly (if applicable).
