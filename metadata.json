@@ -1,0 +1,6 @@
+{
+  "name": "Airstar Fashion Home",
+  "description": "Premium luxury women's fashion and bespoke couture tailoring atelier, including measurements management, custom order customizer, fitting booking, live production tracking, and AI-powered stylist.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

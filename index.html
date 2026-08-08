@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Airstar Fashion Home - Powered by Mfon Akpabio</title>
+    <script>
+      if (window.location.port === '5500') {
+        window.location.replace('http://localhost:3000' + window.location.pathname + window.location.search + window.location.hash);
+      }
+    </script>
+    <script>
+      // Prevent Vite HMR WebSocket connection errors in the sandbox environment
+      (function() {
+        const OriginalWebSocket = window.WebSocket;
+        if (OriginalWebSocket) {
+          const PatchedWebSocket = function(url, protocols) {
+            if (
+              protocols === 'vite-hmr' ||
+              (typeof url === 'string' && (url.includes('vite-hmr') || url.includes('/vite-hmr') || url.includes('ws://localhost') || url.includes('ws://127.0.0.1')))
+            ) {
+              console.warn('Intercepted Vite HMR WebSocket connection to prevent background connection errors.');
+              const dummy = {
+                url: url,
+                readyState: 3, // CLOSED
+                bufferedAmount: 0,
+                extensions: '',
+                protocol: '',
+                binaryType: 'blob',
+                send: function() {},
+                close: function() {},
+                addEventListener: function() {},
+                removeEventListener: function() {},
+                dispatchEvent: function() { return false; },
+                onopen: null,
+                onclose: null,
+                onerror: null,
+                onmessage: null
+              };
+              return dummy;
+            }
+            return new OriginalWebSocket(url, protocols);
+          };
+          PatchedWebSocket.prototype = OriginalWebSocket.prototype;
+          window.WebSocket = PatchedWebSocket;
+        }
+      })();
+    </script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" crossorigin src="/assets/app.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/app.css">
+  </body>
+</html>

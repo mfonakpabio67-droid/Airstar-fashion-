@@ -1,0 +1,35 @@
+{
+  "name": "react-example",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx server.ts",
+"build":"vite build && node -e \"const fs=require('fs'); const path=require('path'); const copy=(src,dst)=>{fs.mkdirSync(dst,{recursive:true}); for(const file of fs.readdirSync(src)){const srcPath=path.join(src,file); const dstPath=path.join(dst,file); if(fs.statSync(srcPath).isFile()){fs.copyFileSync(srcPath,dstPath);}}}; copy('src/assets/images','dist/src/assets/images'); copy('src/assets/images','dist/assets/images');\" && node -e \"const fs=require('fs'); const path=require('path'); fs.mkdirSync('assets',{recursive:true}); for(const f of ['app.js','app.css']){const s=path.join('dist','assets',f); if(fs.existsSync(s)) fs.copyFileSync(s,path.join('assets',f));}\" && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
+    "start": "node dist/server.cjs",
+    "clean": "rm -rf dist",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@google/genai": "^2.4.0",
+    "@tailwindcss/vite": "^4.1.14",
+    "@vitejs/plugin-react": "^5.0.4",
+    "lucide-react": "^0.546.0",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "vite": "^6.2.3",
+    "express": "^4.21.2",
+    "dotenv": "^17.2.3",
+    "motion": "^12.23.24"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "autoprefixer": "^10.4.21",
+    "esbuild": "^0.25.0",
+    "tailwindcss": "^4.1.14",
+    "tsx": "^4.21.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.3",
+    "@types/express": "^4.17.21"
+  }
+}
