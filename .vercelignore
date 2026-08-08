@@ -1,0 +1,14 @@
+node_modules
+.git
+.gitignore
+TODO.md
+README.md
+dist
+out.log
+err.log
+replace.txt
+chrome_final.txt
+chrome_preview.txt
+metadata.json
+save-image.js
+update-image.js
